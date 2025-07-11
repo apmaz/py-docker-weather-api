@@ -39,4 +39,4 @@ def get_weather(url: str, params: dict) -> str:
 
 
 if __name__ == "__main__":
-    get_weather(url=URL, params=PARAMS)
+    print(get_weather(url=URL, params=PARAMS))
