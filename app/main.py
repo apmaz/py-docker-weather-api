@@ -14,7 +14,7 @@ def weather_parser(data_weather: dict) -> str:
     temperature = current_data.get("temp_c", "temperature_unknown")
     condition_weather = condition_data.get("text", "condition_weather_unknown")
 
-    print(
+    return (
         f"{city_name}/{country_name} {localtime} "
         f"Weather: {temperature} Celsius, {condition_weather}"
     )
@@ -22,11 +22,11 @@ def weather_parser(data_weather: dict) -> str:
 
 API_KEY = os.getenv("API_KEY")
 if not API_KEY:
-    raise ValueError("Please enter valur your API key")
+    raise ValueError("Please enter value your API key")
 
 URL = "http://api.weatherapi.com/v1/current.json"
 FILTERING = "Paris"
-PARAMS = {"q": {FILTERING}, "key": API_KEY}
+PARAMS = {"q": FILTERING, "key": API_KEY}
 
 
 def get_weather(url: str, params: dict) -> str:
